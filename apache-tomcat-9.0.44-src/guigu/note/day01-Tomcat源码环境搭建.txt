@@ -1,0 +1,11 @@
+一、配置Tomcat启动
+	1、idea头部菜单栏点击Run--》下拉选择 Edit Configurations... --》点击加号+（Add New Configuration）--》选择Application --》右侧写入名字，并配置运行类（具体参考：扩展-源码环境搭建合集.md）
+	2、虚拟机配置：
+		-Duser.language=en
+		-Duser.region=US
+		-Dfile.encoding=UTF-8
+		-Dsun-jnu.encoding=UTF-8
+		
+二、修改本地host文件：
+	1、文件路径：C:\Windows\System32\drivers\etc -》hosts.etc
+	2、添加hosts文件中的域名映射：127.0.0.1 guigu66.com

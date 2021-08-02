@@ -1,0 +1,5 @@
+一、
+	1、给 Bootstrap.java 类的 synchronized (daemonLock) { 处打上断点
+	2、给 StandardService.java 类的 public StandardService(){ 方法中打上断点
+	3、debugger启动 Stomcat
+	4、查看idea的调用堆栈，从下往上查看它的调用过程

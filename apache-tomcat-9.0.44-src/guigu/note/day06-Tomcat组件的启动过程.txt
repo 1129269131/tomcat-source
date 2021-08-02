@@ -1,0 +1,4 @@
+一、
+	1、给 Bootstrap.java 类的 daemon.start(); 处打上断点
+	2、debugger启动 Stomcat
+	3、查看idea的调用堆栈，从下往上查看它的调用过程

@@ -1,0 +1,3 @@
+一、
+	1、管道（核心接口：Pipeline.java）
+	2、生命周期（核心接口：Lifecycle.java，核心抽象模板类：LifecycleBase.java）
