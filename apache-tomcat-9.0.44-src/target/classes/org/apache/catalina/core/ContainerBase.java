@@ -930,7 +930,7 @@ public abstract class ContainerBase extends LifecycleMBeanBase
 
         //day06：启动管道 Start the Valves in our pipeline (including the basic), if any
         if (pipeline instanceof Lifecycle) {
-            ((Lifecycle) pipeline).start(); //管道的启动，里面所有的阀门启动，阀门设置个状态
+            ((Lifecycle) pipeline).start(); //day07：管道的启动，里面所有的阀门启动，阀门设置个状态
         }
 
         setState(LifecycleState.STARTING);

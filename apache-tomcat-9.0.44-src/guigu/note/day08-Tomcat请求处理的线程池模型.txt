@@ -1,0 +1,9 @@
+一、
+	1、给 Acceptor.java 类的 socket = endpoint.serverSocketAccept(); 处打上断点
+	2、给 NioEndpoint.java 类的 processKey(sk, socketWrapper); 处打上断点
+	3、给 SocketProcessorBase.java 类的 synchronized (socketWrapper) { 处打上断点
+	4、给 CoyoteAdapter.java 类的 service(org.apache.coyote.Request req, org.apache.coyote.Response res) 方法里打上断点
+	5、debugger启动 Stomcat
+	6、浏览器访问 http://guigu66.com:8080/hello_test/hello01
+	7、查看idea的调用堆栈，从下往上查看它的调用过程
+	

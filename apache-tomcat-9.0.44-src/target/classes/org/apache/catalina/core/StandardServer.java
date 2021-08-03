@@ -592,7 +592,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
         try {
             awaitThread = Thread.currentThread();
 
-            // 服务器await期间  Loop waiting for a connection and a valid command
+            // day07：服务器await期间  Loop waiting for a connection and a valid command
             while (!stopAwait) {
                 ServerSocket serverSocket = awaitSocket;
                 if (serverSocket == null) {
@@ -605,8 +605,8 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
                 try {
                     InputStream stream;
                     long acceptStartTime = System.currentTimeMillis();
-                    try { //处理8005端口
-                        socket = serverSocket.accept(); //开启端口接受数据
+                    try { //day07：处理8005端口
+                        socket = serverSocket.accept(); //day07：开启端口接受数据
                         socket.setSoTimeout(10 * 1000);  // Ten seconds
                         stream = socket.getInputStream();
                     } catch (SocketTimeoutException ste) {
@@ -922,12 +922,12 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
         fireLifecycleEvent(CONFIGURE_START_EVENT, null);
         setState(LifecycleState.STARTING);
 
-        globalNamingResources.start(); //启动JNDI服务
+        globalNamingResources.start(); //day07：启动JNDI服务
 
         //day06：启动所有service Start our defined Services
         synchronized (servicesLock) {
             for (Service service : services) {
-                service.start(); //启动所有的Service
+                service.start(); //day07：启动所有的Service
             }
         }
 

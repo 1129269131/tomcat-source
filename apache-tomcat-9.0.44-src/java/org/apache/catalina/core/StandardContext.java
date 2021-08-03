@@ -4947,7 +4947,7 @@ public class StandardContext extends ContainerBase
             namingResources.start();
         }
 
-        // Post work directory //处理工作目录
+        // Post work directory //day07：处理工作目录
         postWorkDirectory();
 
         // Add missing components as necessary
@@ -4967,7 +4967,7 @@ public class StandardContext extends ContainerBase
         }
 
         if (getLoader() == null) {
-            WebappLoader webappLoader = new WebappLoader(); //加载web应用
+            WebappLoader webappLoader = new WebappLoader(); //day07：加载web应用
             webappLoader.setDelegate(getDelegate());
             setLoader(webappLoader);
         }

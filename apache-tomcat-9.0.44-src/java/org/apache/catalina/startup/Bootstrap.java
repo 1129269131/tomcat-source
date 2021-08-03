@@ -470,7 +470,7 @@ public final class Bootstrap {
             } else if (command.equals("start")) {
                 daemon.setAwait(true);
                 daemon.load(args); //day05：***服务器大组件初始化流程，在此绑定了ServerSocket的端口准备接受数据了**
-                daemon.start(); //服务器启动，所有组件也都启动
+                daemon.start(); //day06：服务器启动，所有组件也都启动
                 if (null == daemon.getServer()) {
                     System.exit(1);
                 }

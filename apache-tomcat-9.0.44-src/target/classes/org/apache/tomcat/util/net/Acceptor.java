@@ -65,7 +65,7 @@ public class Acceptor<U> implements Runnable {
     }
 
 
-    @Override //acceptor是一个runnable，后台启动了，第一次监控到8080端口请求的地方
+    @Override //day07：acceptor是一个runnable，后台启动了，第一次监控到8080端口请求的地方
     public void run() {
 
         int errorDelay = 0;
@@ -74,7 +74,7 @@ public class Acceptor<U> implements Runnable {
             // Loop until we receive a shutdown command
             while (!stopCalled) {
 
-                // 50ms检查端口状态  Loop if endpoint is paused
+                // day07：50ms检查端口状态  Loop if endpoint is paused
                 while (endpoint.isPaused() && !stopCalled) {
                     state = AcceptorState.PAUSED;
                     try {
@@ -102,7 +102,7 @@ public class Acceptor<U> implements Runnable {
                     U socket = null;
                     try {
                         // Accept the next incoming connection from the server
-                        // socket   不断的serverSocket.accept
+                        // socket   day07：不断的serverSocket.accept
                         socket = endpoint.serverSocketAccept();
                     } catch (Exception ioe) {
                         // We didn't get a socket
@@ -122,7 +122,7 @@ public class Acceptor<U> implements Runnable {
                     // Configure the socket
                     if (!stopCalled && !endpoint.isPaused()) {
                         // setSocketOptions() will hand the socket off to
-                        // 设置socket an appropriate processor if successful
+                        // day08：设置socket an appropriate processor if successful
                         if (!endpoint.setSocketOptions(socket)) {
                             endpoint.closeSocket(socket);
                         }

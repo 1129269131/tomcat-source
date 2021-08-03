@@ -611,7 +611,7 @@ public abstract class AbstractProtocol<S> implements ProtocolHandler,
             logPortOffset();
         }
 
-        endpoint.start(); //端点启动
+        endpoint.start(); //day07：端点启动
         monitorFuture = getUtilityExecutor().scheduleWithFixedDelay(
                 () -> {
                     if (!isPaused()) {
@@ -889,7 +889,7 @@ public abstract class AbstractProtocol<S> implements ProtocolHandler,
                 wrapper.setCurrentProcessor(processor);
 
                 SocketState state = SocketState.CLOSED;
-                do { //处理器处理Socket数据
+                do { //day08：处理器处理Socket数据
                     state = processor.process(wrapper, status);
 
                     if (state == SocketState.UPGRADING) {

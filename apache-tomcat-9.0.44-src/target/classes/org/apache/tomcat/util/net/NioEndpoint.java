@@ -309,7 +309,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
     @Override
     public void startInternal() throws Exception {
 
-        if (!running) { //开始启动端点
+        if (!running) { //day07：开始启动端点
             running = true;
             paused = false;
 
@@ -326,20 +326,20 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
                         socketProperties.getBufferPool());
             }
 
-            //创建worker线程组（干活的人） Create worker collection
+            //day07：创建worker线程组（干活的人） Create worker collection
             if (getExecutor() == null) {
-                createExecutor(); //默认worker线程池10个线程等待处理
+                createExecutor(); //day07：默认worker线程池10个线程等待处理
             }
 
-            initializeConnectionLatch(); //连接限流的，最大处理8192条连接
+            initializeConnectionLatch(); //day07：连接限流的，最大处理8192条连接
 
-            //启动一个poller；拉取者？？？？？？  Start poller thread
+            //day07：启动一个poller；拉取者？？？？？？  Start poller thread
             poller = new Poller();
             Thread pollerThread = new Thread(poller, getName() + "-ClientPoller");
             pollerThread.setPriority(threadPriority);
             pollerThread.setDaemon(true);
             pollerThread.start();
-            //启动接受者线程
+            //day07：启动接受者线程
             startAcceptorThread();
         }
     }
@@ -807,7 +807,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
 
                 try {
                     if (!close) {
-                        hasEvents = events(); //poller是来进行事件处理
+                        hasEvents = events(); //day07：poller是来进行事件处理
                         if (wakeupCounter.getAndSet(-1) > 0) {
                             // If we are here, means we have other stuff to do
                             // Do a non blocking select
@@ -843,12 +843,12 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
                 // any active event.
                 while (iterator != null && iterator.hasNext()) {
                     SelectionKey sk = iterator.next();
-                    iterator.remove(); //nio里面的
+                    iterator.remove(); //day08：nio里面的
                     NioSocketWrapper socketWrapper = (NioSocketWrapper) sk.attachment();
                     // Attachment may be null if another thread has called
-                    // cancelledKey() 前面判断是否有事件
+                    // cancelledKey() day08：前面判断是否有事件
                     if (socketWrapper != null) {
-                        processKey(sk, socketWrapper); //事件到来以后进行处理
+                        processKey(sk, socketWrapper); //day07：事件到来以后进行处理
                     }
                 }
 
@@ -867,7 +867,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
                     if (sk.isReadable() || sk.isWritable()) {
                         if (socketWrapper.getSendfileData() != null) {
                             processSendfile(sk, socketWrapper, false);
-                        } else { //防止重复读取socket的数据
+                        } else { //day08：防止重复读取socket的数据
                             unreg(sk, socketWrapper, sk.readyOps());
                             boolean closeSocket = false;
                             // Read goes before write
@@ -1671,7 +1671,7 @@ public class NioEndpoint extends AbstractJsseEndpoint<NioChannel,SocketChannel> 
 
             try {
                 int handshake = -1;
-                try { //HTTPS的握手环节
+                try { //day08：HTTPS的握手环节
                     if (socketWrapper.getSocket().isHandshakeComplete()) {
                         // No TLS handshaking required. Let the handler
                         // process this socket / event combination.

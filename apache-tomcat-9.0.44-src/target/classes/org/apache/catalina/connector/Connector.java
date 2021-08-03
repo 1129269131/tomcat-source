@@ -75,7 +75,7 @@ public class Connector extends LifecycleMBeanBase  {
      * Defaults to using HTTP/1.1 NIO implementation.
      */
     public Connector() {
-        this("HTTP/1.1"); //创建出
+        this("HTTP/1.1"); //day07：创建出协议处理器
     }
 
 
@@ -249,7 +249,7 @@ public class Connector extends LifecycleMBeanBase  {
 
     /**
      * Coyote protocol handler.
-     */ //协议处理器 Http11NioProtocol
+     */ //day07：协议处理器 Http11NioProtocol
     protected final ProtocolHandler protocolHandler;
 
 
@@ -1011,7 +1011,7 @@ public class Connector extends LifecycleMBeanBase  {
                     sm.getString("coyoteConnector.protocolHandlerInstantiationFailed"));
         }
 
-        // Initialize adapter 使用 CoyoteAdapter
+        // Initialize adapter day07：使用 CoyoteAdapter
         adapter = new CoyoteAdapter(this);
         protocolHandler.setAdapter(adapter);
         if (service != null) {
@@ -1056,10 +1056,10 @@ public class Connector extends LifecycleMBeanBase  {
      *
      * @exception LifecycleException if a fatal startup error occurs
      */
-    @Override  //连接器启动
+    @Override  //day07：连接器启动
     protected void startInternal() throws LifecycleException {
 
-        // Validate settings before starting Connector创建对象的无参构造器默认就指定了使用http11protocolHandler
+        // Validate settings before starting day07：Connector创建对象的无参构造器默认就指定了使用http11protocolHandler
         String id = (protocolHandler != null) ? protocolHandler.getId() : null;
         if (id == null && getPortWithOffset() < 0) {
             throw new LifecycleException(sm.getString(
@@ -1069,7 +1069,7 @@ public class Connector extends LifecycleMBeanBase  {
         setState(LifecycleState.STARTING);
 
         try {
-            protocolHandler.start(); //协议处理器启动
+            protocolHandler.start(); //day07：协议处理器启动
         } catch (Exception e) {
             throw new LifecycleException(
                     sm.getString("coyoteConnector.protocolHandlerStartFailed"), e);

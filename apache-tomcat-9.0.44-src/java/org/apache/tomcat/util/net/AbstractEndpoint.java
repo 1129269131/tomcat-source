@@ -1157,7 +1157,7 @@ public abstract class AbstractEndpoint<S,U> {
             }
             if (sc == null) {
                 sc = createSocketProcessor(socketWrapper, event);
-            } else { //sc保存 socketWrapper 、event
+            } else { //day08：sc保存 socketWrapper 、event
                 sc.reset(socketWrapper, event);
             }
             Executor executor = getExecutor();

@@ -1,0 +1,6 @@
+一、
+	1、给 Catalina.java 类的 getServer().start(); 处打上断点
+	2、debugger启动 Stomcat
+	3、查看idea的调用堆栈，从下往上查看它的调用过程
+	
+PS：关注类中的 startInternal() 方法
