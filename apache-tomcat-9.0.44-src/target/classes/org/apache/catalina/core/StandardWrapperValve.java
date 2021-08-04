@@ -90,7 +90,7 @@ final class StandardWrapperValve
      * @exception IOException if an input/output error occurred
      * @exception ServletException if a servlet error occurred
      */
-    @Override  //Wrapper封装了Servlet的
+    @Override  //day09：Wrapper封装了Servlet的
     public final void invoke(Request request, Response response)
         throws IOException, ServletException {
 
@@ -129,7 +129,7 @@ final class StandardWrapperValve
             unavailable = true;
         }
 
-        //创建Servlet对象  Allocate a servlet instance to process this request
+        //day09：创建Servlet对象  Allocate a servlet instance to process this request
         try {
             if (!unavailable) {
                 servlet = wrapper.allocate();
@@ -169,7 +169,7 @@ final class StandardWrapperValve
         request.setAttribute(Globals.DISPATCHER_TYPE_ATTR,dispatcherType);
         request.setAttribute(Globals.DISPATCHER_REQUEST_PATH_ATTR,
                 requestPathMB);
-        //为当前请求准备一个FilterChain Create the filter chain for this request
+        //day09：为当前请求准备一个FilterChain Create the filter chain for this request
         ApplicationFilterChain filterChain =
                 ApplicationFilterFactory.createFilterChain(request, wrapper, servlet);
 
@@ -184,7 +184,7 @@ final class StandardWrapperValve
                         SystemLogHandler.startCapture();
                         if (request.isAsyncDispatching()) {
                             request.getAsyncContextInternal().doInternalDispatch();
-                        } else { //执行filter链
+                        } else { //day09：执行filter链
                             filterChain.doFilter(request.getRequest(),
                                     response.getResponse());
                         }

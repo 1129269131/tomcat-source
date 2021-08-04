@@ -74,7 +74,7 @@ final class StandardEngineValve extends ValveBase {
             request.setAsyncSupported(host.getPipeline().isAsyncSupported());
         }
 
-        //引擎管道执行完成以后，会主动把请求交给Host管道的第一个阀门     Ask this Host to process this request
+        //day09：引擎管道执行完成以后，会主动把请求交给Host管道的第一个阀门     Ask this Host to process this request
         host.getPipeline().getFirst().invoke(request, response);
     }
 }

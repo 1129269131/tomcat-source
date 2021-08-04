@@ -1,0 +1,7 @@
+一、
+	1、给 CoyoteAdapter.java 类的 public void service(org.apache.coyote.Request req, org.apache.coyote.Response res) 方法里打上断点
+	2、debugger启动 Stomcat
+	3、浏览器访问 http://guigu66.com:8080/hello_test/hello01
+	4、查看idea的调用堆栈，从下往上查看它的调用过程
+	
+PS：核心部分：CoyoteAdapter.java 类的 connector.getService().getContainer().getPipeline().getFirst().invoke(

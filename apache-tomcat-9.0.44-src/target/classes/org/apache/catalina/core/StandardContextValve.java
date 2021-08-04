@@ -69,7 +69,7 @@ final class StandardContextValve extends ValveBase {
                 || (requestPathMB.equalsIgnoreCase("/META-INF"))
                 || (requestPathMB.startsWithIgnoreCase("/WEB-INF/", 0))
                 || (requestPathMB.equalsIgnoreCase("/WEB-INF"))) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND); //解释了 /WEB-INF/下的资源为什么不能直接请求
+            response.sendError(HttpServletResponse.SC_NOT_FOUND); //day09：解释了 /WEB-INF/下的资源为什么不能直接请求
             return;
         }
 
@@ -93,7 +93,7 @@ final class StandardContextValve extends ValveBase {
 
         if (request.isAsyncSupported()) {
             request.setAsyncSupported(wrapper.getPipeline().isAsyncSupported());
-        } //继续下一个容器
+        } //day09：继续下一个容器
         wrapper.getPipeline().getFirst().invoke(request, response);
     }
 }

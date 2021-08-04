@@ -168,7 +168,7 @@ public final class ApplicationFilterChain implements FilterChain {
         throws IOException, ServletException {
 
         // Call the next filter if there is one
-        if (pos < n) {  //拿到每一个Filter执行doFilter方法
+        if (pos < n) {  //day09：拿到每一个Filter执行doFilter方法
             ApplicationFilterConfig filterConfig = filters[pos++];
             try {
                 Filter filter = filterConfig.getFilter();
@@ -223,7 +223,7 @@ public final class ApplicationFilterChain implements FilterChain {
                                            classTypeUsedInService,
                                            args,
                                            principal);
-            } else { //FilterChain执行完成没有任何异常就会来到 servlet.service
+            } else { //day09：FilterChain执行完成没有任何异常就会来到 servlet.service
                 servlet.service(request, response);
             }
         } catch (IOException | ServletException | RuntimeException e) {

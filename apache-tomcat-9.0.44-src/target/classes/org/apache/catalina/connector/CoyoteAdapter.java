@@ -320,7 +320,7 @@ public class CoyoteAdapter implements Adapter {
         if (request == null) {
             // Create objects
             request = connector.createRequest();
-            request.setCoyoteRequest(req); //HttpServletRequest里面有真正的Request
+            request.setCoyoteRequest(req); //day09：HttpServletRequest里面有真正的Request
             response = connector.createResponse();
             response.setCoyoteResponse(res);
 
@@ -353,7 +353,7 @@ public class CoyoteAdapter implements Adapter {
                 //check valves if we support async
                 request.setAsyncSupported(
                         connector.getService().getContainer().getPipeline().isAsyncSupported());
-                //调用容器 Calling the container 拿到engine的Pipeline
+                //day09：调用容器 Calling the container 拿到engine的Pipeline
                 connector.getService().getContainer().getPipeline().getFirst().invoke(
                         request, response);
             }

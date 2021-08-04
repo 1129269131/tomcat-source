@@ -506,7 +506,7 @@ public abstract class AuthenticatorBase extends ValveBase
         }
 
         // Have we got a cached authenticated Principal to record?
-        if (cache) { //认证的用户信息
+        if (cache) { //day09：认证的用户信息
             Principal principal = request.getUserPrincipal();
             if (principal == null) {
                 Session session = request.getSessionInternal(false);
@@ -538,7 +538,7 @@ public abstract class AuthenticatorBase extends ValveBase
         if (constraints == null && !context.getPreemptiveAuthentication() && !authRequired) {
             if (log.isDebugEnabled()) {
                 log.debug("Not subject to any constraint");
-            } //下一个继续
+            } //day09：下一个继续
             getNext().invoke(request, response);
             return;
         }
