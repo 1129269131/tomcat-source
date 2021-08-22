@@ -2,5 +2,7 @@
 	1、启动 tomcat
 	2、浏览器访问 http://guigu66.com:8080/hello_test
 	
+核心：conf --》server.xml
+	
 
 	

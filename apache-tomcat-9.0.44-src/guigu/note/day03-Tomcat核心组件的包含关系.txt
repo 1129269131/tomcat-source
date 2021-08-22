@@ -2,4 +2,4 @@
 	1、启动 tomcat
 	2、浏览器访问 http://guigu66.com:8080/hello_test/hello01
 	
-PS：关注类中的 add 开头的方法
+PS：关注相关类中的 add 开头的方法

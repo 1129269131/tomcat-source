@@ -110,7 +110,7 @@
     <!-- You should set jvmRoute to support load-balancing via AJP ie :
     <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
     -->
-<!--  day02：Catalina Service是处理请求的服务， 真正会交给引擎进行处理,引擎控制整个的处理逻辑  -->
+<!--  day02：Catalina Service是处理请求的服务，真正会交给引擎进行处理,引擎控制整个的处理逻辑  -->
     <Engine name="Catalina" defaultHost="localhost">
 
       <!--For clustering, please take a look at documentation at:
